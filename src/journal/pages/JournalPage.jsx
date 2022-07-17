@@ -5,7 +5,7 @@ export const JournalPage = () => {
   return (
     <JournalLayout>
       
-      <Typography> </Typography>
+      <Typography> wasd3waws awdsdaw asdaw  </Typography>
 
     </JournalLayout>
   )

@@ -3,16 +3,31 @@ import { AddOutlined } from '@mui/icons-material';
 
 import { JournalLayout } from "../layout/JournalLayout";
 import { NoteView, NothingSelectedView } from "../views";
+import { useDispatch, useSelector } from "react-redux";
+import { savingNewNote, startNewNote } from "../../store/journal";
 
 export const JournalPage = () => {
+
+  const dispatch = useDispatch()
+
+  const { isSaving, active:note } = useSelector(state=>state.journal);
+
+  const onClickNewNote=()=>{
+    dispatch( startNewNote() );
+    dispatch( savingNewNote() );
+  }
+
   return (
     <JournalLayout>
-      
-      {/* <Typography> wasd3waws awdsdaw asdaw  </Typography> */}
-      <NothingSelectedView />
-      {/* <NoteView /> */}
+      {
+        (!!note)
+        ?<NoteView />
+        :<NothingSelectedView />
+      }
 
       <IconButton
+        disabled={isSaving}
+        onClick={onClickNewNote}
         size="large"
         sx={{
           color:'white',

@@ -1,4 +1,5 @@
 import { Box, Divider, Drawer, List, Toolbar, Typography } from "@mui/material"
+import { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import { SidebarItem } from "./";
@@ -6,7 +7,7 @@ import { SidebarItem } from "./";
 export const Sidebar = ({drawerWidth=240}) => {
 
  const {displayName} = useSelector(status=>status.auth);
- const {notes} = useSelector(status=>status.journal);
+ const {notes} = useSelector(status=>status.journal); 
 
   return (
     <Box
